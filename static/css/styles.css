@@ -1,0 +1,120 @@
+/* Google Fontsのインポート */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Pacifico&family=Dancing+Script&family=Lobster&display=swap');
+
+/* 全体のスタイル */
+body {
+    padding: 20px;
+    background-color: #fef8f5;
+    font-family: 'Dancing Script', cursive; /* ベースのフォント */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 見出し（h1）のスタイル */
+h1 {
+    color: #ff6f61;
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* ラベルのスタイル */
+label {
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.5em;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* ボタンのスタイル */
+button, .button {
+    font-family: 'Lobster', cursive;
+    font-size: 1.2em;
+    color: white;
+    background-color: #ff6f61;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none; /* リンクボタン用 */
+    display: inline-block; /* リンクボタン用 */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* ホバーエフェクトを滑らかに */
+}
+
+/* ボタンのホバー時のスタイル */
+button:hover, .button:hover {
+    background-color: #e65b50;
+    transform: translateY(-3px);
+}
+
+/* フォームのスタイル */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ffedea;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 入力フィールドのスタイル */
+input[type="text"], input[type="date"], input[type="time"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ffedea;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Amatic SC', cursive;
+    background-color: #fff;
+    color: #555;
+    box-sizing: border-box;
+}
+
+/* 入力フィールドのフォーカス時 */
+input:focus, textarea:focus {
+    border-color: #ff6f61;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 111, 97, 0.5);
+}
+
+/* リスト（スケジュール一覧など）のスタイル */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+/* リンクボタン（ホームに戻るなど）のスタイル */
+a.button {
+    font-family: 'Lobster', cursive;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 見やすいレスポンシブ調整 */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    button, .button {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}

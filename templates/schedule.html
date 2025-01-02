@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スケジュール管理</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat&family=Dancing+Script&family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h1>スケジュール管理</h1>
+    <!-- ホームに戻るボタン -->
+    <a href="/" class="button">ホームに戻る</a>
+
+    <form method="POST">
+        <label for="date">日付:</label>
+        <input type="date" id="date" name="date">
+        <label for="time">時間:</label>
+        <input type="time" id="time" name="time">
+        <label for="content">内容:</label>
+        <textarea id="content" name="content"></textarea>
+        <button type="submit" class="button">保存</button>
+    </form>
+
+    <h2>登録済みスケジュール</h2>
+    <ul>
+        {% for schedule in schedules %}
+        <li>{{ schedule }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
