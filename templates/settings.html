@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>設定画面</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat&family=Dancing+Script&family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/styles.css">
-</head>
-<body>
-    <h1>設定画面</h1>
-    <form method="POST" action="/settings">
+{% extends "base.html" %}
+
+{% block title %}設定画面{% endblock %}
+
+{% block header_title %}設定画面{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="POST">
         <label for="font">フォントを選択してください:</label>
         <select name="font" id="font">
             {% for font in fonts %}
-            <option value="{{ font }}" {% if font == current_font %}selected{% endif %}>{{ font }}</option>
+                <option value="{{ font }}" {% if font == current_font %}selected{% endif %}>
+                    {{ font }}
+                </option>
             {% endfor %}
         </select>
         <button type="submit">保存</button>
     </form>
-    <a href="/">ホームに戻る</a>
-</body>
-</html>
+    <p><a href="{{ url_for('home') }}">ホームに戻る</a></p>
+</div>
+{% endblock %}

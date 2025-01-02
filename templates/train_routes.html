@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>電車区間管理</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Caveat&family=Dancing+Script&family=Lobster&family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/styles.css">
-</head>
-<body>
-    <h1>電車区間管理</h1>
-    <!-- ホームに戻るボタン -->
-    <a href="/" class="button">ホームに戻る</a>
+{% extends "base.html" %}
 
+{% block title %}電車区間管理{% endblock %}
+
+{% block header_title %}電車区間管理{% endblock %}
+
+{% block content %}
+<div class="container">
     <form method="POST">
         <label for="from">出発駅:</label>
         <input type="text" id="from" name="from">
@@ -21,12 +15,11 @@
         <input type="number" id="fare" name="fare">
         <button type="submit" class="button">保存</button>
     </form>
-
     <h2>登録済み区間</h2>
     <ul>
         {% for route in routes %}
         <li>{{ route }}</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+</div>
+{% endblock %}
