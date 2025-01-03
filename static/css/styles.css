@@ -14,22 +14,37 @@
     --font-family: 'Kosugi Maru', sans-serif; /* デフォルトフォント */
 }
 
+/* 全体のスタイル */
 body {
     background-color: var(--main-bg);
     font-family: var(--font-family);
     color: var(--text-color);
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 /* 見出しのスタイル */
-h1 {
+h1, h2 {
     color: var(--main-accent);
     font-family: 'Pacifico', cursive;
-    font-size: 2.5em;
     margin-bottom: 20px;
 }
 
-/* フォント選択フォームのスタイル */
+h2 {
+    font-size: 1.8em;
+    margin-top: 40px;
+}
+
+/* ラベルのスタイル */
+label {
+    font-size: 1.2em;
+    color: var(--label-color);
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* フォームのスタイル */
 form {
     margin: 20px auto;
     max-width: 500px;
@@ -40,13 +55,28 @@ form {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-label {
-    font-size: 1.2em;
-    color: var(--label-color);
-    display: block;
-    margin-bottom: 8px;
+/* 入力フィールドのスタイル */
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: var(--font-family);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    box-sizing: border-box;
 }
 
+/* 入力フィールドのフォーカス時 */
+input:focus, textarea:focus, select:focus {
+    border-color: var(--input-focus-border);
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 111, 97, 0.5);
+}
+
+/* ボタンのスタイル */
 button {
     background-color: var(--main-accent);
     color: white;
@@ -55,31 +85,66 @@ button {
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: var(--main-accent-hover);
 }
 
-/* レスポンシブ調整 */
+/* リンクスタイル */
+a {
+    color: var(--main-accent);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--main-accent-hover);
+}
+
+/* ナビゲーションスタイル */
+nav {
+    margin: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: var(--main-bg);
+    border: 1px solid var(--input-border);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--main-accent);
+    color: white;
+}
+
+/* カレンダーのカスタマイズ */
+#calendar {
+    max-width: 100%;
+    margin: 20px auto;
+    background-color: white;
+    border: 1px solid var(--input-border);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* レスポンシブデザイン */
 @media (max-width: 768px) {
     h1 {
         font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
     }
 
     form {
         padding: 15px;
     }
 }
-
-
-<style>
-    @font-face {
-        font-family: 'custom-font';
-        src: url("/static/fonts/{{ current_font }}/{{ current_font }}.ttf") format('truetype'),
-             url("/static/fonts/{{ current_font }}/{{ current_font }}.otf") format('opentype');
-    }
-    body {
-        font-family: {% if current_font in ["Arial", "Verdana", "Times New Roman"] %}"{{ current_font }}"{% else %}"custom-font"{% endif %}, sans-serif;
-    }
-</style>

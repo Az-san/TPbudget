@@ -6,12 +6,15 @@
 
 {% block content %}
 <a href="{{ url_for('home') }}">ホームに戻る</a>
+
 <h2>登録済みスケジュール</h2>
 <ul>
     {% for schedule in schedules %}
     <li>{{ schedule }}</li>
     {% endfor %}
 </ul>
+
+<h2>スケジュール登録</h2>
 <form method="POST">
     <div class="form-group">
         <label for="date">日付:</label>
@@ -27,4 +30,38 @@
     </div>
     <button type="submit" class="btn btn-primary">保存</button>
 </form>
+
+<h2>カレンダー表示</h2>
+<div id="calendar" style="margin-top: 20px;"></div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+
+        if (!calendarEl) {
+            console.error("カレンダー要素が見つかりません (#calendar)");
+            return;
+        }
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',  // 月表示
+            locale: 'ja',                // 日本語対応
+            events: [                    // ダミーデータを使用
+                {
+                    title: 'サンプルイベント',
+                    start: '2025-01-01'
+                },
+                {
+                    title: '別のイベント',
+                    start: '2025-01-15'
+                }
+            ]
+        });
+
+        calendar.render();
+    });
+</script>
+
+
 {% endblock %}

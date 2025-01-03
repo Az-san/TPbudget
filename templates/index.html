@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}ホーム{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h2>管理アプリへようこそ</h2>
     <p>以下の機能を利用できます:</p>
     <ul>
-        <li><a href="{{ url_for('schedule') }}">スケジュール管理</a></li>
-        <li><a href="{{ url_for('train_routes') }}">電車区間登録</a></li>
-        <li><a href="{{ url_for('settings') }}">設定</a></li>
+        <li><a href="{{ url_for('schedule') }}">Calender</a></li>
+        <li><a href="{{ url_for('train_routes') }}">Train Routes</a></li>
+        <li><a href="{{ url_for('settings') }}">Settings</a></li>
     </ul>
 </div>
 {% endblock %}

@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify, g
 
 app = Flask(__name__)
 
@@ -53,6 +53,21 @@ def schedule():
 
     current_font = get_current_font()
     return render_template('schedule.html', schedules=schedules, current_font=current_font)
+
+
+@app.route('/api/schedules')
+def api_schedules():
+    try:
+        schedules = [
+            {"title": "テストイベント", "start": "2025-01-05T10:00:00"},
+            {"title": "会議", "start": "2025-01-10T14:00:00"}
+        ]
+        return jsonify(schedules)
+    except Exception as e:
+        print(f"エラー: {e}")
+        return jsonify([])
+
+
 
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
